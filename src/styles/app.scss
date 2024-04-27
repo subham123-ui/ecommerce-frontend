@@ -46,6 +46,7 @@
 
   .header{
     @include flex(row, flex-end,stretch,1.2rem);
+    padding: 1rem;
 
     a {
       color: $color2;
@@ -79,7 +80,7 @@
       left: calc(100% - 100px);
       top: 8%;
       >div {
-        @include flex(column,flex-start, center,00.25rem)
+        @include flex(column,flex-start, center,00.25rem);
       }
     }
 
