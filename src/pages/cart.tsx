@@ -1,7 +1,18 @@
 import { useEffect, useState } from "react";
 import { VscError } from "react-icons/vsc";
+import CartItem from "../components/cart-item";
 
-const cartItems = [];
+const cartItems = [
+  {
+    productId: "dsadaf",
+    photo: "https://m.media-amazon.com/images/I/81Os1SDWpcL._SX679_.jpg",
+    name: "Apple iPhone 15 Pro Max (256 GB) - Black Titanium Macbook",
+    price: 3000,
+    quantity: 4,
+    stock: 10,
+  },
+];
+
 const subtotal = 40000;
 const tax = Math.round(subtotal * 0.18);
 const shippinCharges = 200;
@@ -14,7 +25,7 @@ const Cart = () => {
 
   useEffect(() => {
     const timeOutId = setTimeout(() => {
-      if(Math.random() > 0.5) setIsValidCouponCode(true);
+      if (Math.random() > 0.5) setIsValidCouponCode(true);
       else setIsValidCouponCode(false);
     }, 1000);
 
@@ -27,16 +38,9 @@ const Cart = () => {
   return (
     <div className="cart">
       <main>
-
-        {
-          cartItems.map(i=>
-            
-          )
-        }
-
-
-
-
+        {cartItems.map((i, idx) => (
+          <CartItem key={idx}  cartItem={i}/>
+        ))}
       </main>
       <aside>
         <p>Subtotal: ₹{subtotal}</p>
